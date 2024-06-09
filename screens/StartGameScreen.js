@@ -2,9 +2,7 @@ import { useState } from 'react';
 import { FlatList, View, Text, TextInput, StyleSheet, Alert } from 'react-native';
 import PrimaryButton from '../components/PrimaryButton';
 
-
 function StartGameScreen() {
-
     const [value, setValue] = useState('');
     const [guesses, setGuesses] = useState([]);
 
@@ -30,9 +28,13 @@ function StartGameScreen() {
                     keyboardType="number-pad"
                 />
             </View>
-            <View style={styles.buttonContainer}>
-                <PrimaryButton title="Reset" type="reset" onPress={() => {}} />
-                <PrimaryButton title="Confirm" type="confirm" onPress={handleConfirm} />
+            <View style={styles.buttonsContainer}>
+                <View style={styles.buttonWrapper}>
+                    <PrimaryButton title="Reset" type="reset" onPress={() => {}} />
+                </View>
+                <View style={styles.buttonWrapper}>
+                    <PrimaryButton title="Confirm" type="confirm" onPress={handleConfirm} />
+                </View>
             </View>
             <FlatList 
                 data={guesses}
@@ -91,11 +93,14 @@ const styles = StyleSheet.create({
         fontSize: 36,
         fontWeight: 'bold',
     },
-    buttonContainer: {
+    buttonsContainer: {
         flexDirection: 'row',
-        maxWidth: '80%',
         justifyContent: 'space-between',
-        width: 300,
+        width: '80%',
+    },
+    buttonWrapper: {
+        flex: 1,
+        marginHorizontal: 10,
     },
     listItem: {
         padding: 10,
@@ -106,7 +111,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         width: 300,
         alignItems: 'center',
-
     },
 });
 

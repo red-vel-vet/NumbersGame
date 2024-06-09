@@ -1,4 +1,4 @@
-import { Text, Pressable, StyleSheet, Platform, View } from 'react-native'
+import { Text, Pressable, StyleSheet, Platform, View } from 'react-native';
 
 function PrimaryButton({ onPress, title, type }) {
     const buttonStyle = type === 'confirm' ? styles.confirmButton : styles.resetButton;
@@ -24,8 +24,11 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         marginVertical: 10,
         overflow: 'hidden',
+        width: '100%',
     },
     button: {
+        justifyContent: 'center',
+        alignItems: 'center',
         paddingVertical: 10,
         paddingHorizontal: 30,
         borderRadius: 25,
@@ -34,20 +37,21 @@ const styles = StyleSheet.create({
         shadowRadius: 6,
         shadowOpacity: 0.35,
         elevation: 5,
+        width: '100%',
     },
     confirmButton: {
         backgroundColor: '#E6B800',
     },
     resetButton: {
-        backgroundColor: '#808080', // Gray color for reset button
+        backgroundColor: '#808080',
     },
     buttonText: {
-        color: 'white', // White color for button text
+        color: 'white',
         fontSize: 18,
     },
     resetButtonText: {
-        color: 'white', // White color for reset button text
+        color: 'white',
     },
 });
 
-export default PrimaryButton
+export default PrimaryButton;
